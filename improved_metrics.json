@@ -1,0 +1,17 @@
+{
+  "model_name": "Improved CNN (BN + GAP)",
+  "best_val_acc": 0.9130434989929199,
+  "test_acc": 0.9202898550724637,
+  "test_precision_macro": 0.9105892535203675,
+  "test_recall_macro": 0.8773809523809524,
+  "test_f1_macro": 0.8910311454755441,
+  "num_params": 1206628,
+  "num_epochs": 25,
+  "stopped_early": true,
+  "class_names": [
+    "hole",
+    "horizontal",
+    "stain",
+    "vertical"
+  ]
+}

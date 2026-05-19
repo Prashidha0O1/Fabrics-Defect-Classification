@@ -1,0 +1,16 @@
+{
+  "model_name": "Baseline CNN",
+  "best_val_acc": 0.9130434989929199,
+  "test_acc": 0.9130434782608695,
+  "test_precision_macro": 0.8805555555555555,
+  "test_recall_macro": 0.8654761904761905,
+  "test_f1_macro": 0.8655520724486241,
+  "num_params": 16873028,
+  "num_epochs": 15,
+  "class_names": [
+    "hole",
+    "horizontal",
+    "stain",
+    "vertical"
+  ]
+}

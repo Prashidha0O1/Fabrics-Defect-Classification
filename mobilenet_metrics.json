@@ -1,0 +1,18 @@
+{
+  "model_name": "MobileNetV2 (fine-tuned)",
+  "best_val_acc": 0.9347826242446899,
+  "test_acc": 0.9492753623188406,
+  "test_precision_macro": 0.9245516035871713,
+  "test_recall_macro": 0.9238095238095239,
+  "test_f1_macro": 0.9219928355957767,
+  "num_params_total": 2552836,
+  "num_params_trainable_final": 2010308,
+  "stage1_epochs": 5,
+  "stage2_epochs": 15,
+  "class_names": [
+    "hole",
+    "horizontal",
+    "stain",
+    "vertical"
+  ]
+}
