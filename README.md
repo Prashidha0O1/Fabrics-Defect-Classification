@@ -1,17 +1,18 @@
 # Fabric Defect Classification — PyTorch Project
 
-A three-notebook project for classifying fabric defects into four categories (**hole**, **horizontal**, **stain**, **vertical**) using the *Fabric Defects Dataset* from Kaggle.
+A four-notebook project for classifying fabric defects into four categories (**hole**, **horizontal**, **stain**, **vertical**) using the *Fabric Defects Dataset* from Kaggle.
 
 ## Project Overview
 
-This project builds and compares two CNN architectures:
+This project builds and compares three CNN architectures:
 
 | Model | Architecture | Key Features |
-|-------|--------------|--------------|
+|-------|--------------|--------------||
 | **Baseline CNN** | 3-block CNN with heavy FC head | Baseline for comparison |
 | **Improved CNN** | 4-block CNN with BatchNorm + Global Average Pooling | Cosine LR schedule, early stopping, ColorJitter augmentation |
+| **MobileNet Finetuned** | Pre-trained MobileNet transfer learning | Fine-tuned on fabric defects, efficient for deployment |
 
-Both models are trained on the same fixed, stratified split (70% train / 15% val / 15% test) with strict data leakage prevention controls.
+All models are trained on the same fixed, stratified split (70% train / 15% val / 15% test) with strict data leakage prevention controls.
 
 ## Quick Start
 
@@ -44,8 +45,7 @@ Run these notebooks **sequentially** on a clean start:
 |------|----------|---------|
 | 1️⃣ | `00_Data_Preparation_and_EDA.ipynb` | Creates train/val/test split, runs EDA |
 | 2️⃣ | `01_Baseline_CNN.ipynb` | Trains baseline model |
-| 3️⃣ | `02_Improved_CNN.ipynb` | Trains improved model, compares with baseline |
-
+| 3️⃣ | `02_Improved_CNN.ipynb` | Trains improved model, compares with baseline || 4️⃣ | `04_MobileNet_Finetuning.ipynb` | Fine-tunes pre-trained MobileNet, final three-way comparison |
 ⚠️ **Important**: Notebook 00 creates `fabric_split/` which all other notebooks depend on. Re-running it will invalidate saved test metrics.
 
 ## Data Leakage Prevention
@@ -74,6 +74,10 @@ models/
     improved_cnn_weights.pth
     improved_history.json
     improved_metrics.json
+  mobilenet/
+    mobilenet_finetuned_weights.pth
+    mobilenet_history.json
+    mobilenet_metrics.json
 ```
 
 ### Results & Visualizations
@@ -101,3 +105,11 @@ All visualizations and comparison results are saved to `visualizations/` and `re
 - `improved_vs_baseline_curves.png` — Side-by-side comparison
 - `improved_confusion_matrix.png`, `improved_per_class_metrics.png`
 - `improved_roc_curves.png`, `improved_correct.png`, `improved_wrong.png`
+
+**Notebook 04 — MobileNet Finetuning:**
+- `mobilenet_transfer_learning_plot.png` — Transfer learning architecture
+- `mobilenet_training_curves.png` — Loss + accuracy over epochs
+- `mobilenet_vs_baselines_curves.png` — Overlay comparison with CNNs
+- `mobilenet_confusion_matrix.png`, `mobilenet_per_class_metrics.png`
+- `mobilenet_roc_curves.png`, `mobilenet_correct.png`, `mobilenet_wrong.png`
+- `final_comparison_with_mobilenet.csv` — Three-model performance summary
